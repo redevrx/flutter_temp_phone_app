@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_temp_phone_app/domain/model/sms_response.dart';
+import 'package:flutter_temp_phone_app/domain/bloc/events/base_sms_event.dart';
 
 import '../model/country_response.dart';
 import '../usecase/fetch_sms_use_case.dart';
 
-class SmsCubit extends Cubit<List<SmsResponse>> {
-  SmsCubit() : super([]);
+class SmsCubit extends Cubit<SmsEvent> {
+  SmsCubit() : super(InitSmsEvent());
 
   final _smsUseCase = FetchSmsUseCase();
 
@@ -22,7 +22,7 @@ class SmsCubit extends Cubit<List<SmsResponse>> {
   }
 
   void fetchSms() async {
-    emit([SmsResponse(sendPhone: '', recvTime: '', text: '')]);
-    emit(await _smsUseCase.getSms(phone: phone).first);
+    emit(SmsLoading());
+    emit(SmsSuccess(response: await _smsUseCase.getSms(phone: phone).first));
   }
 }

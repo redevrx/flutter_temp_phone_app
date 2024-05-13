@@ -2,6 +2,9 @@
 
 free temp phone number app
 
+## Example App
+<img src="assets/example.gif" width="350"  alt="Example Video App"/>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

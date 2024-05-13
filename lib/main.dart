@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_temp_phone_app/domain/bloc/menu_cubit.dart';
-import 'package:flutter_temp_phone_app/domain/bloc/pick_country_cubit.dart';
 import 'package:flutter_temp_phone_app/domain/bloc/sms_cubit.dart';
 import 'package:flutter_temp_phone_app/domain/bloc/temp_phone_cubit.dart';
 import 'package:flutter_temp_phone_app/views/splash_screen_view.dart';
@@ -20,9 +19,6 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => MenuCubit(),
-        ),
-        BlocProvider(
-          create: (context) => PickCountryCubit(),
         ),
         BlocProvider(
           create: (context) => SmsCubit(),
